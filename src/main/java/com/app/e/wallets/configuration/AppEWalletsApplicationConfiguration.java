@@ -11,6 +11,12 @@ import com.app.e.wallets.mapper.IMapper;
 public class AppEWalletsApplicationConfiguration {
 
 	@Bean
+	public ModelMapper modelMapper() {
+		IMapper modelMapper = ModelMapper::new;
+		return modelMapper.getModelMapper();
+	}
+
+	@Bean
 	public ModelMapper modelMapperPerson() {
 		IMapper modelMapperPerson = () -> {
 			ModelMapper modelMapper = new ModelMapper();
