@@ -13,6 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class TypeInvestmentDto extends EWalletsPersistentObjectDto {
 
+	private static final long serialVersionUID = 1779005836846983028L;
 	private String title;
 	private String description;
 

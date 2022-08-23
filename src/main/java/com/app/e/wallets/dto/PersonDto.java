@@ -15,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class PersonDto extends EWalletsPersistentObjectDto {
 
+	private static final long serialVersionUID = -7945825038974558784L;
 	private String name;
 	private String surname;
 	private String dni;
@@ -23,4 +24,5 @@ public class PersonDto extends EWalletsPersistentObjectDto {
 	private String photo;
 	private Date dateBirth;
 	private boolean enabled;
+
 }
