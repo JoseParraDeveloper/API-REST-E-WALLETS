@@ -54,8 +54,10 @@ public class TypeInvestmentServiceImpl implements ITypeInvestmentService {
 
 	@Override
 	public TypeInvestmentDto createTypeInvestment(TypeInvestmentDto typeInvestmentDto) {
-		typeInvestmentDto.setCreationTimestamp(new Date());
-		typeInvestmentDto.setCreationTimestamp(new Date());
+		if (typeInvestmentDto.getId() == null) {
+			typeInvestmentDto.setCreationTimestamp(new Date());
+			typeInvestmentDto.setModificationTimestamp(new Date());
+		}
 		TypeInvestment newTypeInvestment = modelMapper.map(typeInvestmentDto, TypeInvestment.class);
 		newTypeInvestment = typeInvestmentRepository.save(newTypeInvestment);
 		return modelMapper.map(newTypeInvestment, TypeInvestmentDto.class);
@@ -73,6 +75,7 @@ public class TypeInvestmentServiceImpl implements ITypeInvestmentService {
 		} else {
 			throw new BadRequestException("Bad Request");
 		}
+		typeInvestmentDto.setModificationTimestamp(new Date());
 		return this.createTypeInvestment(typeInvestmentDto);
 	}
 
